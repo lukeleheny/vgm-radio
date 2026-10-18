@@ -245,19 +245,7 @@ const setupEventListeners = () => {
   navigator.mediaSession?.setActionHandler("pause", handleStop);
 };
 
-const setupWorkarounds = () => {
-  if (navigator.userAgent.includes("Firefox")) {
-    setInterval(() => {
-      if (!audio.paused && audio.duration === duration) {
-        handleStop();
-        handlePlay();
-        console.log("Stream hanging, restarting...");
-      } else {
-        duration = audio.duration;
-      }
-    }, 1000);
-  }
-};
+const setupWorkarounds = () => {};
 
 const debugApp = () => {
   if (new URLSearchParams(window.location.search).has("debug")) {
